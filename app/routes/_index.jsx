@@ -1,5 +1,6 @@
 export const meta = () => {
-  return [{ title: "New Remix App" }];
+  return [{ title: "Bem vindo!",
+}];
 };
 
 import WelcomeForm from "../components/WelcomeForm.jsx";

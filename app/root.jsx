@@ -23,6 +23,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="shortcut icon" href="./../public/favicon.png" type="image/x-icon" />
         <script src="https://kit.fontawesome.com/bdcc87c8b0.js" crossOrigin="anonymous"></script>
       </head>
       <body>

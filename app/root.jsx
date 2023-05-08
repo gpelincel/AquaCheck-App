@@ -24,6 +24,7 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="shortcut icon" href="./../public/favicon.png" type="image/x-icon" />
+        <link rel="manifest" href="/site.webmanifest"></link>
         <script src="https://kit.fontawesome.com/bdcc87c8b0.js" crossOrigin="anonymous"></script>
       </head>
       <body>

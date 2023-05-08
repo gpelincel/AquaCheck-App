@@ -1,0 +1,20 @@
+{
+    "name": "AquaChecker",
+    "short_name": "Aqua",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "./public/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./public/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

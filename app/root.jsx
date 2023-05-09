@@ -17,14 +17,14 @@ export const links = () => [
 
 export default function App() {
   return (
-    <html lang="en" data-theme="mytheme">
+    <html lang="pt-br" data-theme="mytheme">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="manifest" href="./../site.webmanifest"></link>
         <link rel="shortcut icon" href="./../public/favicon.png" type="image/x-icon" />
-        <link rel="manifest" href="/site.webmanifest"></link>
         <script src="https://kit.fontawesome.com/bdcc87c8b0.js" crossOrigin="anonymous"></script>
       </head>
       <body>

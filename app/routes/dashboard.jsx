@@ -1,4 +1,4 @@
-import Waves from "../components/waves/waves";
+import Waves from "../components/waves/Waves";
 
 export default function Dashboard() {
     return (

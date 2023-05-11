@@ -1,42 +1,31 @@
 import { useNavigate } from "@remix-run/react";
-import { initializeApp } from "firebase/app";
-import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import { getDatabase, ref, set } from "firebase/database";
 import { useState } from "react";
+import firebase from "../firebase";
+
 
 export default function WelcomeForm() {
     const navigate = useNavigate();
-
     const [userToken, setToken] = useState("");
-    const [altura, setAltura] = useState("");
-    const [diametro, setDiametro] = useState("");
+    const [alturaTampa, setAlturaTampa] = useState("");
+    const [alturaSTampa, setAlturaSTampa] = useState("");
     const [capacidade, setCapacidade] = useState("");
-
-    const firebaseApp = initializeApp({
-        apiKey: "AIzaSyCBB7_XD8FbClpxLKft9HngQLHzPWi4fIE",
-        authDomain: "aquacheck-4fd1f.firebaseapp.com",
-        projectId: "aquacheck-4fd1f",
-        storageBucket: "aquacheck-4fd1f.appspot.com",
-        messagingSenderId: "734992815468",
-        appId: "1:734992815468:web:2c54eb5b798a5a2349cf49"
-    });
-
-    const db = getFirestore(firebaseApp);
-    const waterCollection = collection(db, "water_data");
 
     async function saveData(e) {
 
         e.preventDefault();
 
-        localStorage.setItem("token", userToken);
+        console.log(userToken);
 
-        const data = await addDoc(waterCollection, {
-            userToken,
-            altura,
-            diametro,
-            capacidade
+        localStorage.setItem("userToken", userToken);
+
+        const db = getDatabase(firebase.app);
+
+        set(ref(db, '/' + userToken), {
+            capacidade: capacidade,
+            alturaTampa: alturaTampa,
+            alturaSTampa: alturaSTampa,
         });
-
-        console.log(data);
 
         navigate("/dashboard");
     }
@@ -54,9 +43,9 @@ export default function WelcomeForm() {
                 <div className="dimensions">
                     <h1>Dimensões da sua caixa em metros</h1>
                     <div className="form-control flex gap-1">
-                        <input type="number" name="altura" value={altura} min={1} placeholder="Altura (m)" className="input input-bordered bg-white w-full max-w-xs" onChange={(e) => setAltura(e.target.value)} required />
+                        <input type="number" name="alturaTampa" value={alturaTampa} min={1} placeholder="Altura c/ tampa (cm)" className="input input-bordered bg-white w-full max-w-xs" onChange={(e) => setAlturaTampa(e.target.value)} required />
 
-                        <input type="number" min={1} name="diametro" value={diametro} placeholder="Diâmetro (m)" className="input input-bordered bg-white w-full max-w-xs" onChange={(e) => setDiametro(e.target.value)} required />
+                        <input type="number" min={1} name="alturaSTampa" value={alturaSTampa} placeholder="Altura s/ tampa (cm)" className="input input-bordered bg-white w-full max-w-xs" onChange={(e) => setAlturaSTampa(e.target.value)} required />
 
                         <input type="number" min={1} name="capacidade" value={capacidade} placeholder="Capacidade (L)" className="input input-bordered bg-white w-full max-w-xs" onChange={(e) => setCapacidade(e.target.value)} required />
                     </div>

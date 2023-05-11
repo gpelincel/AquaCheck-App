@@ -22,8 +22,8 @@ export default function Dashboard() {
 
 
                 var diferencaAltura = data['alturaSTampa'] - data['alturaTampa'];
-                var litros = ((data.level - diferencaAltura) * data['capacidade']) / data['alturaTampa'];
-                var porcentagem = (100 * litros) / data['capacidade'];
+                var litros = data.capacidade - (((data.level - diferencaAltura) * data['capacidade']) / data['alturaTampa']);
+                var porcentagem = ((100 * litros) / data['capacidade']);
 
                 data.litros = litros.toFixed(2);
                 data.porcentagem = porcentagem.toFixed(2);
@@ -39,7 +39,6 @@ export default function Dashboard() {
         <>
             <main className="flex items-center justify-center w-full h-screen">
                 <div className="text-center flex flex-col gap-4">
-                    {console.log(userData.level)}
                     <h1 className="text-7xl">{userData.porcentagem}%</h1>
                     <p >{userData.litros} Litros</p>
                     <p>De água restante</p>

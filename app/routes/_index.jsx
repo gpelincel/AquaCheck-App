@@ -5,7 +5,7 @@ export const meta = () => {
 };
 
 import { Outlet } from "@remix-run/react";
-import WelcomeForm from "../components/welcomeForm";
+import WelcomeForm from "../components/WelcomeForm";
 import Waves from "../components/waves/waves";
 
 export default function Index() {

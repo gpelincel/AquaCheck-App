@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './waves.css';
 
 export default function Waves() {

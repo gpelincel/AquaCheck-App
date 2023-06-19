@@ -21,7 +21,7 @@ export default function WelcomeForm() {
 
         const db = getDatabase(firebase.app);
 
-        set(ref(db, '/' + userToken), {
+        set(ref(db, '/SensorData/' + userToken), {
             capacidade: capacidade,
             alturaTampa: alturaTampa,
             alturaSTampa: alturaSTampa,
